@@ -2,9 +2,9 @@ import { siteConfig } from './lib/site-config'
 
 export default siteConfig({
   // the site's root Notion page (required)
-  rootNotionPageId: '23fda7f357228047921eee52858a7d60',
-    //https://outrageous-pastry-838.notion.site/Moora-Sleep-Mist-23fda7f357228047921eee52858a7d60?source=copy_link
-  // https://outrageous-pastry-838.notion.site/Moora-Sleep-Mist-23fda7f357228047921eee52858a7d60
+  rootNotionPageId: '23fda7f357228047921eee52858a7d60?pvs=74',
+// https://outrageous-pastry-838.notion.site/Moora-Sleep-Mist-23fda7f357228047921eee52858a7d60?pvs=74
+// https://outrageous-pastry-838.notion.site/Moora-Sleep-Mist-23fda7f357228047921eee52858a7d60
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
   rootNotionSpaceId: null, 
