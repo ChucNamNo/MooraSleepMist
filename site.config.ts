@@ -2,24 +2,24 @@ import { siteConfig } from './lib/site-config'
 
 export default siteConfig({
   // the site's root Notion page (required)
-  rootNotionPageId: '175da7f3572280fab1a0c62ff19b7f01?pvs=74',
-
+  rootNotionPageId: '23fda7f357228047921eee52858a7d60',
+  // https://outrageous-pastry-838.notion.site/Moora-Sleep-Mist-23fda7f357228047921eee52858a7d60
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
   rootNotionSpaceId: null, 
 
   // basic site info (required)
-  name: 'Long Chuc',
-  domain: 'longchuc.vercel.app',
-  author: 'Long Chúc',
+  name: 'Nguyen Ngoc Yen Nguyen',
+  domain: 'MooraSleepMist.com',
+  author: 'Nguyen Ngoc Yen Nguyen',
 
   // open graph metadata (optional)
-  description: 'My Profile',
+  description: 'MooraSleepMist',
 
   // social usernames (optional)
-  twitter: '',
-  github: '',
-  linkedin: 'chúc-phạm-long-801372289',
+  // twitter: '',
+  // github: '',
+  // linkedin: 'chúc-phạm-long-801372289',
   // mastodon: '#', // optional mastodon profile URL, provides link verification
   // newsletter: '#', // optional newsletter URL
   // youtube: '#', // optional youtube channel name or `channel/UCGbXXXXXXXXXXXXXXXXXXXXXX`
@@ -51,19 +51,19 @@ export default siteConfig({
   // whether to use the default notion navigation style or a custom one with links to
   // important pages. To use `navigationLinks`, set `navigationStyle` to `custom`.
   //navigationStyle: 'default'
-  navigationStyle: 'custom',
-  navigationLinks: [
-    {
-      title: 'About',
-      pageId: '175da7f3572280fab1a0c62ff19b7f01?pvs=74'
-    },
-    {
-      title: 'Contact',
-      pageId: '1c0da7f357228055a129d90a84efc393'
-    },
-    {
-      title: 'Resume',
-      pageId: '1d5da7f3572280d8a011e34588003379'
-    }
+  // navigationStyle: 'custom',
+  // navigationLinks: [
+  //   {
+  //     title: 'About',
+  //     pageId: '175da7f3572280fab1a0c62ff19b7f01?pvs=74'
+  //   },
+  //   {
+  //     title: 'Contact',
+  //     pageId: '1c0da7f357228055a129d90a84efc393'
+  //   },
+  //   {
+  //     title: 'Resume',
+  //     pageId: '1d5da7f3572280d8a011e34588003379'
+  //   }
   ]
 })
