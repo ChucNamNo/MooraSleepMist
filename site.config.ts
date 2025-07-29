@@ -66,5 +66,5 @@ export default siteConfig({
   //     title: 'Resume',
   //     pageId: '1d5da7f3572280d8a011e34588003379'
   //   }
-  ]
+  //]
 })
