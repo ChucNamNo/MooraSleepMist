@@ -1,0 +1,461 @@
+/**
+ * This file contains site-specific style overrides for Notion elements from react-notion-x.
+ */
+
+/* === Define CSS Variables === */
+:root {
+  --bg-color: #ffffff; /* Background color for light mode */
+  --fg-color: #000000; /* Foreground color for light mode */
+  --header-bg: rgba(255, 255, 255, 0.85); /* Header background in light mode */
+  --header-bg-dark: rgba(30, 30, 30, 0.85); /* Header background in dark mode */
+  --code-bg: #f6f8fa; /* Code block background in light mode */
+  --code-border: #e2e8f0; /* Code block border in light mode */
+  --quote-bg: #f8fafc; /* Quote background in light mode */
+  --link-border: #4a90e2; /* Link border color in light mode */
+  --link-border-hover: #e5337e; /* Link border color on hover */
+  --transition-duration: 0.3s; /* Duration for theme transition */
+  --border-radius-sm: 6px; /* Small border radius for elements like code, quote */
+  --border-radius-md: 8px; /* Medium border radius for cards, callouts */
+  --border-radius-lg: 12px; /* Large border radius for gallery cards */
+  --border-radius-xl: 16px; /* Extra large border radius for page covers */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05); /* Small shadow for header, search */
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1); /* Medium shadow for cards */
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1); /* Large shadow for cards */
+  --shadow-xl: 0 4px 16px rgba(0, 0, 0, 0.1); /* Extra large shadow for page covers */
+}
+
+/* Dark mode color overrides */
+.dark-mode {
+  --bg-color: #1a1a1a; /* Background color for dark mode */
+  --fg-color: #e0e0e0; /* Foreground color for dark mode (softer white for better contrast) */
+  --code-bg: #2d2d2d; /* Code block background in dark mode */
+  --code-border: #444444; /* Code block border in dark mode */
+  --quote-bg: #2a2a2a; /* Quote background in dark mode */
+  --link-border: #66b0ff; /* Link border color in dark mode */
+  --link-border-hover: #ff77a9; /* Link border color on hover in dark mode */
+}
+
+/* === Global Transitions for Theme Switching === */
+html,
+body,
+.notion,
+.notion-header,
+.notion-code,
+.notion-quote,
+.notion-red_background,
+.notion-pink_background,
+.notion-blue_background,
+.notion-purple_background,
+.notion-teal_background,
+.notion-yellow_background,
+.notion-orange_background,
+.notion-brown_background,
+.notion-gray_background {
+  transition: background-color var(--transition-duration) ease,
+              color var(--transition-duration) ease,
+              border-color var(--transition-duration) ease,
+              box-shadow var(--transition-duration) ease;
+}
+
+/* Apply colors to body */
+body {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+}
+
+/* === Notion Global Styles === */
+.notion {
+  --notion-max-width: 900px;
+  --notion-header-height: 64px;
+  font-size: 16px;
+}
+
+.notion-frame {
+  padding: 0;
+}
+
+.notion-page {
+  padding-bottom: calc(max(8vh, 48px));
+  line-height: 1.75;
+}
+
+/* === Specific Page Overrides === */
+.index-page,
+.tags-page {
+  --notion-max-width: 1100px;
+}
+
+.tags-page .notion-collection-header {
+  display: none;
+}
+
+.tags-page .notion-gallery {
+  padding-top: 2.5em;
+}
+
+.tags-page .notion-gallery-grid {
+  padding-top: 3em;
+}
+
+/* === Text and Media Blocks === */
+.notion-text {
+  padding: 0.75em 4px;
+}
+
+.notion-asset-caption {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666; /* Consider adding dark mode color */
+}
+
+/* Tăng margin cho asset wrapper và đảm bảo ảnh hiển thị đầy đủ */
+.notion-asset-wrapper {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  width: 100% !important; /* Đảm bảo container chiếm toàn bộ chiều rộng */
+  max-width: 100% !important; /* Loại bỏ giới hạn chiều rộng */
+  overflow: visible !important; /* Đảm bảo ảnh không bị cắt nếu vượt container */
+}
+
+/* Đảm bảo ảnh trong nội dung hiển thị đầy đủ kích thước tự nhiên */
+.notion-asset-wrapper img {
+  width: auto !important; /* Cho phép ảnh giữ kích thước tự nhiên */
+  max-width: 100% !important; /* Không vượt quá container cha */
+  height: auto !important; /* Giữ tỷ lệ ảnh */
+  object-fit: contain !important; /* Đảm bảo ảnh hiển thị đầy đủ, không bị cắt */
+  display: block !important; /* Loại bỏ khoảng trống bên dưới ảnh */
+  margin: 0 auto !important; /* Căn giữa ảnh */
+}
+
+/* Đảm bảo container cha không giới hạn ảnh */
+.notion-block,
+.notion-row {
+  max-width: 100% !important; /* Loại bỏ giới hạn từ container cha */
+  overflow: visible !important; /* Đảm bảo ảnh không bị cắt */
+}
+
+/* Đảm bảo video full width */
+.notion-asset-wrapper-video > div,
+.notion-asset-wrapper-video video {
+  width: 100% !important;
+}
+
+/* === Header Navigation === */
+.notion-header .notion-nav-header {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.notion-nav-header-rhs {
+  gap: 1rem;
+}
+
+/* === Gallery Grid === */
+.notion-gallery-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+}
+
+.notion-gallery-grid .notion-page-icon-inline {
+  display: none;
+}
+
+.notion-gallery-grid .notion-page-title-text {
+  font-size: 1.5em;
+  white-space: unset;
+}
+
+.notion-gallery-grid .notion-collection-card-property {
+  white-space: unset;
+  text-overflow: unset;
+}
+
+.notion-gallery-grid .notion-property-text {
+  font-size: 14px;
+}
+
+/* === Collection Card === */
+.notion-collection-card {
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.2s ease, background-color var(--transition-duration) ease;
+}
+
+.notion-collection-card:hover {
+  transform: translateY(-4px);
+}
+
+.notion-collection-card-cover img {
+  border-radius: var(--border-radius-lg);
+}
+
+.notion-collection-card-cover {
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: filter 0.2s ease;
+}
+
+.notion-collection-card:hover .notion-collection-card-cover {
+  filter: brightness(110%);
+}
+
+.notion-collection-card-body {
+  padding: 12px;
+}
+
+/* Safari workaround for transitions */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  _::-webkit-full-page-media,
+  _:future,
+  :root,
+  .notion-collection-card-cover {
+    transition: none;
+  }
+}
+
+/* === Quote === */
+.notion-quote {
+  padding: 0.5em 1em;
+  line-height: 1.6;
+  font-style: italic;
+  font-size: 1.25em;
+  border-left: 4px solid #4a90e2;
+  background: var(--quote-bg);
+  border-radius: var(--border-radius-sm);
+}
+
+/* === Headings === */
+.notion-h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.notion-h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.4em;
+}
+
+.notion-h3 {
+  font-size: 1.25em;
+  margin-bottom: 0.3em;
+}
+
+/* === Callout and HR === */
+.notion-callout {
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: var(--border-radius-md);
+}
+
+.notion-hr {
+  margin: 2.5em 0;
+}
+
+/* === Responsive Padding === */
+@media only screen and (max-width: 920px) {
+  .index-page.notion-page {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .notion-page {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .notion-search-button {
+    display: none;
+  }
+}
+
+/* === Page Icon and Title === */
+.notion .notion-page-icon-cover {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.notion-title {
+  display: block;
+  text-align: center;
+  font-size: 2.25em;
+  margin-bottom: 0.5em;
+}
+
+/* === Collection Row === */
+.notion-collection-row {
+  padding-bottom: 1.5em;
+}
+
+.notion-collection-page-properties .notion-collection-column-title {
+  display: none;
+}
+
+.notion-collection-row-property .notion-property {
+  display: flex;
+  justify-content: center;
+}
+
+.notion-collection-row-value {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  min-height: 28px;
+}
+
+/* === Page Cover === */
+.notion .notion-page-cover-wrapper,
+.notion-page-cover-wrapper span,
+.notion-page-cover-wrapper img {
+  max-width: 1400px;
+  border-radius: var(--border-radius-xl);
+}
+
+.notion-page-cover-wrapper {
+  box-shadow: var(--shadow-xl);
+}
+
+.notion-page-cover-hero {
+  cursor: grab;
+}
+
+.notion-page-cover-hero:active {
+  cursor: grabbing;
+}
+
+@media only screen and (max-width: 1200px) {
+  .notion .notion-page-cover-wrapper,
+  .notion-page-cover-wrapper span,
+  .notion-page-cover-wrapper img {
+    border-radius: 0;
+  }
+}
+
+/* === Code Block === */
+.notion-code {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: var(--border-radius-sm);
+  padding: 1em;
+  font-size: 0.95em;
+}
+
+/* === Links === */
+.notion-link {
+  position: relative;
+  border-bottom: 1px solid var(--link-border);
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.notion-link:hover,
+.notion-link:focus {
+  color: var(--link-border);
+  border-bottom-color: var(--link-border-hover);
+  background: none;
+}
+
+/* Add focus styles for accessibility */
+.notion-link:focus {
+  outline: 2px solid var(--link-border);
+  outline-offset: 2px;
+}
+
+/* === Background Colors for Notion Blocks === */
+.notion-red_background,
+.notion-pink_background,
+.notion-blue_background,
+.notion-purple_background,
+.notion-teal_background,
+.notion-yellow_background,
+.notion-orange_background,
+.notion-brown_background,
+.notion-gray_background {
+  padding: 0.25em 0.75em;
+  margin: 0 -0.75em;
+  border-radius: var(--border-radius-sm);
+  background-image: none;
+  background-color: #f0f4f8;
+}
+
+.notion-yellow_background {
+  background-color: #fff9e6;
+}
+
+.notion-pink_background {
+  background-color: #fce8f0;
+}
+
+.notion-blue_background {
+  background-color: #e6f3ff;
+}
+
+.notion-teal_background {
+  background-color: #e6fff5;
+}
+
+.dark-mode .notion-red_background,
+.dark-mode .notion-pink_background,
+.dark-mode .notion-blue_background,
+.dark-mode .notion-purple_background,
+.dark-mode .notion-teal_background,
+.dark-mode .notion-yellow_background,
+.dark-mode .notion-orange_background,
+.dark-mode .notion-brown_background,
+.dark-mode .notion-gray_background {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* === Header === */
+.notion-header {
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+}
+
+.dark-mode .notion-header {
+  background: var(--header-bg-dark);
+}
+
+/* Workaround for Firefox */
+@-moz-document url-prefix() {
+  .dark-mode .notion-header {
+    background: rgba(30, 30, 30, 0.9);
+  }
+}
+
+/* === Bookmark === */
+.notion-bookmark:hover {
+  border: 1px solid #4a90e2;
+}
+
+/* Add focus styles for accessibility */
+.notion-bookmark:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+/* === Search === */
+.notion-search .searchBar {
+  box-shadow: var(--shadow-sm);
+}
+
+.notion-search .noResults {
+  color: #888;
+}
+
+.dark-mode .notion-search .noResults {
+  color: #bbb;
+}
+
+.notion-search .noResultsDetail {
+  color: #666;
+}
+
+.dark-mode .notion-search .noResultsDetail {
+  color: #999;
+}
